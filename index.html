@@ -1,69 +1,226 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mohamed El Merghany | Portfolio</title>
-
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class'
+  <title>Mohamed El Merghany | Senior Software Developer & Data Engineer</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      background: #f7f9fc;
+      color: #222;
+      line-height: 1.6;
     }
-  </script>
+    header {
+      background: #0b3c5d;
+      color: #fff;
+      padding: 50px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 36px;
+    }
+    header p {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+    h2 {
+      color: #0b3c5d;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 10px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+    ul {
+      padding-left: 18px;
+    }
+    footer {
+      background: #0b3c5d;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+    .tag {
+      display: inline-block;
+      background: #e3eef7;
+      color: #0b3c5d;
+      padding: 6px 10px;
+      border-radius: 4px;
+      margin: 4px 4px 0 0;
+      font-size: 14px;
+    }
+  </style>
 </head>
 
-<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+<body>
 
-  <!-- Header -->
-  <header class="text-center py-20">
-    <h1 class="text-4xl font-bold">Mohamed El Merghany</h1>
-    <p class="mt-4 text-xl text-gray-600 dark:text-gray-400">
-      Senior Software Developer • Data Engineer • Solution Architect
+<header>
+  <h1>Mohamed El Merghany</h1>
+  <p>Senior Software Developer & Data Engineer</p>
+  <p>20+ Years | Enterprise Systems | Oracle • Python • Data Engineering</p>
+</header>
+
+<section>
+  <h2>About Me</h2>
+  <p>
+    Senior Software Developer and Data Engineer with over 20 years of experience
+    designing, architecting, and delivering enterprise-scale systems.
+    I specialize in building secure, scalable School and University Management Systems
+    serving 3,000 to 10,000+ users with 99.9% uptime.
+  </p>
+  <p>
+    My strength lies in connecting business needs with technical execution through
+    strong system analysis, data architecture, and performance optimization,
+    supported by CBAP and CISSP certifications.
+  </p>
+</section>
+
+<section>
+  <h2>Core Expertise</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>System Architecture</h3>
+      <ul>
+        <li>Enterprise System Design</li>
+        <li>SDLC / DDLC</li>
+        <li>Scalable & Secure Architectures</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Database & Oracle</h3>
+      <ul>
+        <li>Oracle Database Architecture</li>
+        <li>PL/SQL Optimization</li>
+        <li>Performance Tuning</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Data Engineering</h3>
+      <ul>
+        <li>ETL / ELT Pipelines</li>
+        <li>Data Modeling & Warehousing</li>
+        <li>Analytics & Dashboards</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Leadership & Delivery</h3>
+      <ul>
+        <li>Full Project Lifecycle Ownership</li>
+        <li>Stakeholder Collaboration</li>
+        <li>Technical Team Leadership</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Key Projects</h2>
+
+  <div class="card">
+    <h3>School Management System – Modern English School</h3>
+    <p><strong>Role:</strong> Lead Architect & Senior Software Developer</p>
+    <p>
+      Architected and led the development of a mission-critical School Management System
+      serving over 3,000 students and staff with 99.9% uptime.
     </p>
+    <ul>
+      <li>Designed scalable Oracle database architecture</li>
+      <li>Built ETL pipelines for student performance analytics</li>
+      <li>Delivered real-time dashboards for administration</li>
+      <li>Improved system performance and operational efficiency</li>
+    </ul>
+  </div>
 
-    <!-- Role Switch -->
-    <div class="mt-10 flex justify-center gap-6">
-      <a href="data-engineer.html"
-         class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-        Data Engineer View
-      </a>
+  <div class="card">
+    <h3>School Management System – Gulf English School</h3>
+    <p><strong>Role:</strong> Consulting Lead Architect</p>
+    <p>
+      Implemented a customized School Management System using a reusable core framework,
+      adapted to specific operational requirements.
+    </p>
+    <ul>
+      <li>Framework customization</li>
+      <li>Automated data validation & cleansing</li>
+      <li>Improved data quality and reporting accuracy</li>
+    </ul>
+  </div>
 
-      <a href="architect.html"
-         class="px-6 py-3 bg-gray-700 text-white rounded-lg hover:bg-gray-800">
-        Solution Architect View
-      </a>
-    </div>
-  </header>
+  <div class="card">
+    <h3>University Management System – October 6 University</h3>
+    <p><strong>Role:</strong> Senior Oracle Developer</p>
+    <p>
+      Led full lifecycle development of a University Management System supporting
+      10,000+ users.
+    </p>
+    <ul>
+      <li>Oracle schema and PL/SQL package design</li>
+      <li>Performance optimization and scalability improvements</li>
+      <li>Long-term system support and enhancement</li>
+    </ul>
+  </div>
 
-  <!-- Projects -->
-  <section class="max-w-6xl mx-auto px-6">
-    <h2 class="text-3xl font-semibold mb-8">Featured Case Studies</h2>
+</section>
 
-    <div class="grid md:grid-cols-3 gap-6">
-      <a href="projects/mes.html" class="block bg-white dark:bg-gray-800 p-6 rounded-xl shadow hover:scale-105 transition">
-        <h3 class="font-bold text-lg">School Management System</h3>
-        <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
-          3,000+ users • 99.9% uptime
-        </p>
-      </a>
+<section>
+  <h2>Technologies</h2>
+  <div>
+    <span class="tag">Oracle</span>
+    <span class="tag">PL/SQL</span>
+    <span class="tag">Python</span>
+    <span class="tag">Java</span>
+    <span class="tag">PostgreSQL</span>
+    <span class="tag">SQL Server</span>
+    <span class="tag">ETL / ELT</span>
+    <span class="tag">Data Modeling</span>
+    <span class="tag">Apache Spark</span>
+    <span class="tag">Kafka</span>
+    <span class="tag">Django</span>
+    <span class="tag">Oracle APEX</span>
+    <span class="tag">REST APIs</span>
+    <span class="tag">Git</span>
+    <span class="tag">Agile / Scrum</span>
+  </div>
+</section>
 
-      <a href="projects/ges.html" class="block bg-white dark:bg-gray-800 p-6 rounded-xl shadow hover:scale-105 transition">
-        <h3 class="font-bold text-lg">GES Custom SMS</h3>
-        <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
-          Consulting & customization
-        </p>
-      </a>
+<section>
+  <h2>Certifications & Education</h2>
+  <ul>
+    <li>CISSP – Information Systems Security Professional</li>
+    <li>CBAP – Business Analysis Professional</li>
+    <li>Microsoft Data Engineer (2026)</li>
+    <li>Oracle System Modeling & Tools</li>
+    <li>B.Sc. Management Information Systems</li>
+  </ul>
+</section>
 
-      <a href="projects/ums.html" class="block bg-white dark:bg-gray-800 p-6 rounded-xl shadow hover:scale-105 transition">
-        <h3 class="font-bold text-lg">University Management System</h3>
-        <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
-          10,000+ users
-        </p>
-      </a>
-    </div>
-  </section>
+<section>
+  <h2>Contact</h2>
+  <p>
+    📧 Email: <strong>m.merghany@gmail.com</strong><br/>
+    🔗 LinkedIn: <strong>linkedin.com/in/mohamed-el-merghany</strong><br/>
+    📍 Cairo, Egypt
+  </p>
+</section>
+
+<footer>
+  <p>© 2026 Mohamed El Merghany | Enterprise Software & Data Engineering</p>
+</footer>
 
 </body>
 </html>
