@@ -1,226 +1,732 @@
+html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mohamed El Merghany | Senior Software Developer & Data Engineer</title>
-  <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      margin: 0;
-      background: #f7f9fc;
-      color: #222;
-      line-height: 1.6;
-    }
-    header {
-      background: #0b3c5d;
-      color: #fff;
-      padding: 50px 20px;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 36px;
-    }
-    header p {
-      font-size: 18px;
-      margin-top: 10px;
-    }
-    section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-    h2 {
-      color: #0b3c5d;
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 10px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    }
-    ul {
-      padding-left: 18px;
-    }
-    footer {
-      background: #0b3c5d;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-    }
-    .tag {
-      display: inline-block;
-      background: #e3eef7;
-      color: #0b3c5d;
-      padding: 6px 10px;
-      border-radius: 4px;
-      margin: 4px 4px 0 0;
-      font-size: 14px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Merghany - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --gray-color: #7f8c8d;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #1a2530);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .profile-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .profile-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid var(--secondary-color);
+            margin-right: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .photo-placeholder {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background-color: #34495e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            border: 5px solid var(--secondary-color);
+            margin-right: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .title {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info {
+            margin-top: 1rem;
+        }
+        
+        .contact-info p {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            width: 20px;
+            color: var(--secondary-color);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 3rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        section:last-of-type {
+            border-bottom: none;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--secondary-color);
+            display: inline-block;
+        }
+        
+        /* Profile Section */
+        .profile-section {
+            background-color: white;
+        }
+        
+        .profile-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 900px;
+        }
+        
+        .highlight {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+        
+        /* Skills Section */
+        .skills-section {
+            background-color: #f5f7fa;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .skill-category {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .skill-item {
+            background-color: #eaf2f8;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+        }
+        
+        /* Experience Section */
+        .experience-item {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        
+        .job-title {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .company {
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+        
+        .date {
+            color: var(--gray-color);
+            font-style: italic;
+        }
+        
+        .responsibilities {
+            margin-top: 1rem;
+        }
+        
+        .responsibilities li {
+            margin-bottom: 0.5rem;
+            margin-left: 1.5rem;
+        }
+        
+        /* Projects Section */
+        .projects-section {
+            background-color: #f5f7fa;
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .project-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-title {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-meta {
+            color: var(--gray-color);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Education & Certifications */
+        .edu-cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .edu-cert-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .cert-title {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .cert-org {
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+        
+        .cert-date {
+            color: var(--gray-color);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        
+        /* Languages */
+        .languages {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        
+        .language-item {
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            flex: 1;
+            text-align: center;
+        }
+        
+        .language-name {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .language-level {
+            color: var(--gray-color);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .copyright {
+            margin-top: 1rem;
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .profile-img, .photo-placeholder {
+                margin-right: 0;
+                margin-bottom: 1.5rem;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .title {
+                font-size: 1.2rem;
+            }
+            
+            .languages {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .experience-header {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
-
 <body>
+    <!-- Header with Profile Info -->
+    <header>
+        <div class="container">
+            <div class="profile-header">
+                <!-- Profile Photo - Replace with your actual image -->
+                <div class="profile-img">
+                    <!-- Replace the src attribute with your actual photo path -->
+                    <img src="24172462_1548883661826999_2064303961_n (2).jpg" alt="Mohamed Merghany - Software Developer & Data Engineer">
+                </div>
+                <div class="profile-info">
+                    <h1>Mohamed Yehia Mohamed Merghany</h1>
+                    <div class="title">Software Developer & Data Engineer</div>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> New Maadi, Cairo, Egypt</p>
+                        <p><i class="fas fa-envelope"></i> m.merghany@gmail.com</p>
+                        <p><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/mohamed-el-merghany" style="color: white;">LinkedIn: Mohamed-El-Merghany</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-<header>
-  <h1>Mohamed El Merghany</h1>
-  <p>Senior Software Developer & Data Engineer</p>
-  <p>20+ Years | Enterprise Systems | Oracle • Python • Data Engineering</p>
-</header>
+    <!-- Professional Profile Section -->
+    <section class="profile-section">
+        <div class="container">
+            <h2>Professional Profile</h2>
+            <div class="profile-text">
+                <p>Software Developer & Data Engineer with over <span class="highlight">20 years of expertise</span> architecting and leading the full lifecycle implementation of high-impact, enterprise-scale systems. Specializes in designing secure, scalable database architectures and data-driven applications using <span class="highlight">Oracle, Python, and Java stacks</span>.</p>
+                
+                <p>Proven track record of successfully building and managing mission-critical School & University Management Systems serving communities of <span class="highlight">3,000 to 10,000+ users</span> with 99.9% uptime. Combines deep technical mastery in ETL, data modeling, and performance optimization with strategic business analysis (CBAP), security (CISSP) and Oracle System Modeling & Tools certifications to deliver solutions that align technical excellence with operational needs and security best practices.</p>
+            </div>
+        </div>
+    </section>
 
-<section>
-  <h2>About Me</h2>
-  <p>
-    Senior Software Developer and Data Engineer with over 20 years of experience
-    designing, architecting, and delivering enterprise-scale systems.
-    I specialize in building secure, scalable School and University Management Systems
-    serving 3,000 to 10,000+ users with 99.9% uptime.
-  </p>
-  <p>
-    My strength lies in connecting business needs with technical execution through
-    strong system analysis, data architecture, and performance optimization,
-    supported by CBAP and CISSP certifications.
-  </p>
-</section>
+    <!-- Technical Skills Section -->
+    <section class="skills-section">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming & Scripting</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Python</span>
+                        <span class="skill-item">Java</span>
+                        <span class="skill-item">PL/SQL</span>
+                        <span class="skill-item">C</span>
+                        <span class="skill-item">C++</span>
+                        <span class="skill-item">Visual Basic</span>
+                        <span class="skill-item">XML</span>
+                        <span class="skill-item">HTML</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Databases & Systems</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Oracle Database</span>
+                        <span class="skill-item">PostgreSQL</span>
+                        <span class="skill-item">Microsoft SQL Server</span>
+                        <span class="skill-item">MySQL</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Data Engineering</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">ETL/ELT Design</span>
+                        <span class="skill-item">Data Modeling</span>
+                        <span class="skill-item">Data Warehousing</span>
+                        <span class="skill-item">Apache Spark</span>
+                        <span class="skill-item">Hadoop</span>
+                        <span class="skill-item">Kafka</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Frameworks & Platforms</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Django</span>
+                        <span class="skill-item">Oracle APEX</span>
+                        <span class="skill-item">Oracle ADF</span>
+                        <span class="skill-item">Oracle Forms</span>
+                        <span class="skill-item">Oracle Reports</span>
+                        <span class="skill-item">BI Publisher</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Methodologies & Tools</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Git</span>
+                        <span class="skill-item">REST APIs</span>
+                        <span class="skill-item">Agile/Scrum</span>
+                        <span class="skill-item">System Architecture</span>
+                        <span class="skill-item">SDLC/DDLC</span>
+                        <span class="skill-item">Performance Tuning</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section>
-  <h2>Core Expertise</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>System Architecture</h3>
-      <ul>
-        <li>Enterprise System Design</li>
-        <li>SDLC / DDLC</li>
-        <li>Scalable & Secure Architectures</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>Database & Oracle</h3>
-      <ul>
-        <li>Oracle Database Architecture</li>
-        <li>PL/SQL Optimization</li>
-        <li>Performance Tuning</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>Data Engineering</h3>
-      <ul>
-        <li>ETL / ELT Pipelines</li>
-        <li>Data Modeling & Warehousing</li>
-        <li>Analytics & Dashboards</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>Leadership & Delivery</h3>
-      <ul>
-        <li>Full Project Lifecycle Ownership</li>
-        <li>Stakeholder Collaboration</li>
-        <li>Technical Team Leadership</li>
-      </ul>
-    </div>
-  </div>
-</section>
+    <!-- Work Experience Section -->
+    <section class="experience-section">
+        <div class="container">
+            <h2>Work Experience</h2>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">Senior Software Developer</div>
+                        <div class="company">Modern English School</div>
+                    </div>
+                    <div class="date">December 2010 - Present | Full Time</div>
+                </div>
+                <div class="responsibilities">
+                    <ul>
+                        <li>Architected and led the development of the School Management System, serving a community of 3000 students and staff with 99.9% uptime</li>
+                        <li>Collaborated with stakeholders to define system parameters and ensure alignment with operational needs</li>
+                        <li>Managed database design, configuration, testing, and deployment, ensuring scalability and performance</li>
+                        <li>Designed and maintained ETL pipelines for student performance analytics and reporting</li>
+                        <li>Built data models to support business intelligence and operational reporting</li>
+                        <li>Optimized data workflows for real-time dashboards and administrative insights</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">Senior Software Developer</div>
+                        <div class="company">Gulf English School</div>
+                    </div>
+                    <div class="date">September 2020 - Present | Hybrid</div>
+                </div>
+                <div class="responsibilities">
+                    <ul>
+                        <li>Consulted as Lead Architect for a parallel School Management System implementation</li>
+                        <li>Leveraged the core framework from MES but customizing for GES's specific operational needs</li>
+                        <li>Developed automated data validation and cleansing processes</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">Senior Oracle Developer</div>
+                        <div class="company">October 6 University</div>
+                    </div>
+                    <div class="date">July 2004 - December 2010 | Full Time</div>
+                </div>
+                <div class="responsibilities">
+                    <ul>
+                        <li>Led the full lifecycle development of the University Management System (UMS)</li>
+                        <li>Architected and optimized the core Oracle database schemas and PL/SQL packages</li>
+                        <li>Improved system scalability to support a growing user base of over 10,000 students and staff</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">Software Developer</div>
+                        <div class="company">Swanco Oil Service & Catering</div>
+                    </div>
+                    <div class="date">December 2002 - August 2004 | Full Time</div>
+                </div>
+                <div class="responsibilities">
+                    <ul>
+                        <li>Established IT infrastructure including network systems and operating environments</li>
+                        <li>Developed ERP system to support business operations</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">VB Developer</div>
+                        <div class="company">Smart Software Solutions</div>
+                    </div>
+                    <div class="date">May 2001 - December 2002 | Full Time</div>
+                </div>
+                <div class="responsibilities">
+                    <ul>
+                        <li>Contributed to development of ERP System</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section>
-  <h2>Key Projects</h2>
+    <!-- Projects Section -->
+    <section class="projects-section">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-title">Jazan Court Solutions</div>
+                    <div class="project-meta">Oracle 10G Developer | Omega Software Solutions (Jan 2009 - Dec 2009)</div>
+                    <p>Developed technical solutions for Jazan Court in the Kingdom of Saudi Arabia.</p>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-title">HR Management System Architecture</div>
+                    <div class="project-meta">Software Designer | MGT Intel Group-USA (May 2008 - Jan 2009)</div>
+                    <p>Designed scalable system architectures for Human Resource Management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <div class="card">
-    <h3>School Management System – Modern English School</h3>
-    <p><strong>Role:</strong> Lead Architect & Senior Software Developer</p>
-    <p>
-      Architected and led the development of a mission-critical School Management System
-      serving over 3,000 students and staff with 99.9% uptime.
-    </p>
-    <ul>
-      <li>Designed scalable Oracle database architecture</li>
-      <li>Built ETL pipelines for student performance analytics</li>
-      <li>Delivered real-time dashboards for administration</li>
-      <li>Improved system performance and operational efficiency</li>
-    </ul>
-  </div>
+    <!-- Education & Certifications Section -->
+    <section class="education-section">
+        <div class="container">
+            <h2>Education & Certifications</h2>
+            
+            <div class="edu-cert-grid">
+                <div class="edu-cert-card">
+                    <div class="cert-title">B.Sc. Management Information Systems</div>
+                    <div class="cert-org">Sadat Academy for Management Science</div>
+                    <div class="cert-date">July 2002</div>
+                </div>
+                
+                <div class="edu-cert-card">
+                    <div class="cert-title">Information Systems Security Professional (CISSP)</div>
+                    <div class="cert-org">The State University of New York</div>
+                    <div class="cert-date">December 2015</div>
+                </div>
+                
+                <div class="edu-cert-card">
+                    <div class="cert-title">Business Analysis Professional (CBAP)</div>
+                    <div class="cert-org">The State University of New York</div>
+                    <div class="cert-date">September 2015</div>
+                </div>
+                
+                <div class="edu-cert-card">
+                    <div class="cert-title">Oracle System Modeling & Tools</div>
+                    <div class="cert-org">The American University in Cairo</div>
+                    <div class="cert-date">September 2001</div>
+                </div>
+                
+                <div class="edu-cert-card">
+                    <div class="cert-title">Project Management</div>
+                    <div class="cert-org">IBM</div>
+                    <div class="cert-date">January 2005</div>
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 2rem; color: var(--primary-color);">Relevant Courses</h3>
+            <div class="skill-items" style="margin-top: 1rem;">
+                <span class="skill-item">Microsoft Data Engineer (2026)</span>
+                <span class="skill-item">Oracle DBA (2018)</span>
+                <span class="skill-item">Oracle ADF (2016)</span>
+                <span class="skill-item">Six Sigma (2015)</span>
+                <span class="skill-item">Oracle 11g Forms & Report (2013)</span>
+                <span class="skill-item">Linux Fundamental (2012)</span>
+                <span class="skill-item">Effective Business Communication (2011)</span>
+                <span class="skill-item">C/C++ Language (2000)</span>
+                <span class="skill-item">Visual Basic (1999)</span>
+            </div>
+        </div>
+    </section>
 
-  <div class="card">
-    <h3>School Management System – Gulf English School</h3>
-    <p><strong>Role:</strong> Consulting Lead Architect</p>
-    <p>
-      Implemented a customized School Management System using a reusable core framework,
-      adapted to specific operational requirements.
-    </p>
-    <ul>
-      <li>Framework customization</li>
-      <li>Automated data validation & cleansing</li>
-      <li>Improved data quality and reporting accuracy</li>
-    </ul>
-  </div>
+    <!-- Languages Section -->
+    <section class="languages-section">
+        <div class="container">
+            <h2>Languages</h2>
+            <div class="languages">
+                <div class="language-item">
+                    <div class="language-name">English</div>
+                    <div class="language-level">Professional working proficiency</div>
+                </div>
+                
+                <div class="language-item">
+                    <div class="language-name">Arabic</div>
+                    <div class="language-level">Native</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <div class="card">
-    <h3>University Management System – October 6 University</h3>
-    <p><strong>Role:</strong> Senior Oracle Developer</p>
-    <p>
-      Led full lifecycle development of a University Management System supporting
-      10,000+ users.
-    </p>
-    <ul>
-      <li>Oracle schema and PL/SQL package design</li>
-      <li>Performance optimization and scalability improvements</li>
-      <li>Long-term system support and enhancement</li>
-    </ul>
-  </div>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="profile-img" style="width: 100px; height: 100px; margin: 0 auto 1rem; border: 3px solid white;">
+                <img src="24172462_1548883661826999_2064303961_n (2).jpg" alt="Mohamed Merghany">
+            </div>
+            <p>Mohamed Yehia Mohamed Merghany | Software Developer & Data Engineer</p>
+            <div class="contact-info" style="margin-top: 1rem;">
+                <p style="display: inline-block; margin-right: 1.5rem;"><i class="fas fa-envelope"></i> m.merghany@gmail.com</p>
+                <p style="display: inline-block;"><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/mohamed-el-merghany" style="color: #bdc3c7;">LinkedIn Profile</a></p>
+            </div>
+            <div class="copyright">
+                &copy; 2023 Mohamed Merghany. All rights reserved.
+            </div>
+        </div>
+    </footer>
 
-</section>
-
-<section>
-  <h2>Technologies</h2>
-  <div>
-    <span class="tag">Oracle</span>
-    <span class="tag">PL/SQL</span>
-    <span class="tag">Python</span>
-    <span class="tag">Java</span>
-    <span class="tag">PostgreSQL</span>
-    <span class="tag">SQL Server</span>
-    <span class="tag">ETL / ELT</span>
-    <span class="tag">Data Modeling</span>
-    <span class="tag">Apache Spark</span>
-    <span class="tag">Kafka</span>
-    <span class="tag">Django</span>
-    <span class="tag">Oracle APEX</span>
-    <span class="tag">REST APIs</span>
-    <span class="tag">Git</span>
-    <span class="tag">Agile / Scrum</span>
-  </div>
-</section>
-
-<section>
-  <h2>Certifications & Education</h2>
-  <ul>
-    <li>CISSP – Information Systems Security Professional</li>
-    <li>CBAP – Business Analysis Professional</li>
-    <li>Microsoft Data Engineer (2026)</li>
-    <li>Oracle System Modeling & Tools</li>
-    <li>B.Sc. Management Information Systems</li>
-  </ul>
-</section>
-
-<section>
-  <h2>Contact</h2>
-  <p>
-    📧 Email: <strong>m.merghany@gmail.com</strong><br/>
-    🔗 LinkedIn: <strong>linkedin.com/in/mohamed-el-merghany</strong><br/>
-    📍 Cairo, Egypt
-  </p>
-</section>
-
-<footer>
-  <p>© 2026 Mohamed El Merghany | Enterprise Software & Data Engineering</p>
-</footer>
-
+    <script>
+        // Simple script for smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add subtle animation to skill items on hover
+        document.querySelectorAll('.skill-category').forEach(category => {
+            category.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+            });
+            
+            category.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+        
+        // Image loading fallback
+        document.addEventListener('DOMContentLoaded', function() {
+            const profileImg = document.querySelector('.profile-img img');
+            const footerImg = document.querySelector('footer .profile-img img');
+            
+            // If image fails to load, show placeholder
+            profileImg.onerror = function() {
+                const profileContainer = document.querySelector('.profile-img');
+                profileContainer.innerHTML = '<div class="photo-placeholder"><i class="fas fa-user"></i></div>';
+            };
+            
+            footerImg.onerror = function() {
+                const footerContainer = document.querySelector('footer .profile-img');
+                footerContainer.innerHTML = '<div style="width: 100px; height: 100px; border-radius: 50%; background-color: #34495e; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: white; border: 3px solid white;"><i class="fas fa-user"></i></div>';
+            };
+        });
+    </script>
 </body>
 </html>
