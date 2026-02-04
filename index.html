@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohamed Merghany - Senior Software Developer & Data Engineer</title>
+    <meta name="description" content="Mohamed Yehia Mohamed El Merghany - Senior Software Developer & Data Engineer with 20+ years of experience">
+    <meta name="author" content="Mohamed Yehia Mohamed El Merghany">
+    <title>Mohamed El Merghany - Senior Software Developer & Data Engineer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         :root {
@@ -18,272 +19,413 @@
             --secondary-color: #3498db;
             --accent-color: #e74c3c;
             --success-color: #27ae60;
+            --warning-color: #f39c12;
             --light-color: #ecf0f1;
             --dark-color: #2c3e50;
             --gray-color: #7f8c8d;
+            --light-gray: #bdc3c7;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
         }
         
         body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #f9f9f9;
+            background-color: #f8f9fa;
         }
         
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
         }
         
-        /* Header Styles */
-        header {
-            background: linear-gradient(135deg, var(--primary-color), #1a2530);
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        nav.scrolled {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 2rem 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 6rem 0 4rem;
             position: relative;
             overflow: hidden;
         }
-
-        header::before {
+        
+        .hero-container {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .hero-image {
+            flex-shrink: 0;
+        }
+        
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            object-fit: cover;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .hero::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(45deg, transparent 30%, rgba(52, 152, 219, 0.1) 50%, transparent 70%);
-            animation: shimmer 3s infinite;
-        }
-
-        @keyframes shimmer {
-            0%, 100% { transform: translateX(-100%); }
-            50% { transform: translateX(100%); }
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
         }
         
-        .profile-header {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 2rem;
+        .hero-content {
             position: relative;
             z-index: 1;
+            max-width: 800px;
         }
         
-        .profile-info {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .profile-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 5px solid var(--secondary-color);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
-        
-        .profile-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        
-        .photo-placeholder {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            background-color: #34495e;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: white;
-            border: 5px solid var(--secondary-color);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .title {
-            font-size: 1.5rem;
-            color: var(--secondary-color);
+        .hero h1 {
+            font-size: 3rem;
             margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease-out;
         }
         
-        .contact-info {
-            margin-top: 1rem;
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
         }
         
-        .contact-info p {
-            margin-bottom: 0.5rem;
+        .hero p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+        
+        .hero-stats {
             display: flex;
+            gap: 3rem;
+            margin-top: 2rem;
+            animation: fadeInUp 0.8s ease-out 0.6s backwards;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
             align-items: center;
+            gap: 0.5rem;
         }
         
-        .contact-info i {
-            margin-right: 10px;
-            width: 20px;
-            color: var(--secondary-color);
-        }
-        
-        /* Section Styles */
-        section {
-            padding: 3rem 0;
-            border-bottom: 1px solid #eee;
-        }
-        
-        section:last-of-type {
-            border-bottom: none;
-        }
-        
-        h2 {
-            font-size: 2rem;
+        .btn-primary {
+            background: white;
             color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 3px solid var(--secondary-color);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-outline {
+            border: 2px solid white;
+            color: white;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+        
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            position: relative;
             display: inline-block;
         }
         
-        /* Profile Section */
-        .profile-section {
-            background-color: white;
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--secondary-color);
+            border-radius: 2px;
         }
         
-        .profile-text {
+        .section-title p {
+            color: var(--gray-color);
             font-size: 1.1rem;
-            line-height: 1.8;
-            max-width: 900px;
-        }
-        
-        .highlight {
-            color: var(--secondary-color);
-            font-weight: 600;
+            margin-top: 1.5rem;
         }
         
         /* Skills Section */
-        .skills-section {
-            background-color: #f5f7fa;
-        }
-        
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
         
         .skill-category {
             background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
+            border-top: 4px solid var(--secondary-color);
         }
         
         .skill-category:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
         
         .skill-category h3 {
             color: var(--primary-color);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             font-size: 1.3rem;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
         }
-
+        
         .skill-category h3 i {
+            font-size: 1.5rem;
             color: var(--secondary-color);
         }
         
         .skill-items {
             display: flex;
             flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        
+        .skill-tag {
+            background: linear-gradient(135deg, #e8f4f8 0%, #f0f8ff 100%);
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        
+        .skill-tag:hover {
+            background: var(--secondary-color);
+            color: white;
+            transform: scale(1.05);
+            border-color: var(--secondary-color);
+        }
+        
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--secondary-color), var(--success-color));
+        }
+        
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .timeline-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            width: calc(50% - 40px);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+        }
+        
+        .timeline-content:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transform: scale(1.02);
+        }
+        
+        .timeline-marker {
+            position: absolute;
+            left: 50%;
+            top: 30px;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--secondary-color);
+            border: 4px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.2);
+        }
+        
+        .timeline-content h3 {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-content .company {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-content .date {
+            color: var(--gray-color);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
             gap: 0.5rem;
         }
         
-        .skill-item {
-            background-color: #eaf2f8;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: var(--primary-color);
-            transition: all 0.3s ease;
-        }
-
-        .skill-item:hover {
-            background-color: var(--secondary-color);
-            color: white;
-            transform: scale(1.05);
-        }
-        
-        /* Experience Section */
-        .experience-item {
-            background: white;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            border-left: 4px solid var(--secondary-color);
-            transition: all 0.3s ease;
-        }
-
-        .experience-item:hover {
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            transform: translateX(5px);
-        }
-        
-        .experience-header {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-        
-        .job-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-bottom: 0.3rem;
-        }
-        
-        .company {
-            font-size: 1.1rem;
-            color: var(--secondary-color);
-        }
-        
-        .date {
-            color: var(--gray-color);
-            font-size: 0.95rem;
-        }
-        
-        .responsibilities ul {
+        .timeline-content ul {
             margin-left: 1.5rem;
-            margin-top: 0.5rem;
-        }
-        
-        .responsibilities li {
-            margin-bottom: 0.5rem;
             color: #555;
         }
         
-        /* Projects Section - Enhanced */
-        .projects-section {
-            background: linear-gradient(135deg, #f5f7fa 0%, #fff 100%);
+        .timeline-content li {
+            margin-bottom: 0.5rem;
         }
         
-        .project-grid {
+        /* Projects Section */
+        .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 2rem;
@@ -292,99 +434,90 @@
         
         .project-card {
             background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
             position: relative;
-            overflow: hidden;
-            border-top: 4px solid var(--secondary-color);
         }
-
+        
         .project-card::before {
             content: '';
             position: absolute;
             top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(52, 152, 219, 0.1), transparent);
-            transition: left 0.5s ease;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--gradient-1);
         }
-
-        .project-card:hover::before {
-            left: 100%;
+        
+        .project-card:nth-child(2)::before {
+            background: var(--gradient-2);
+        }
+        
+        .project-card:nth-child(3)::before {
+            background: var(--gradient-3);
         }
         
         .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         }
-
+        
         .project-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--secondary-color), #5dade2);
-            border-radius: 12px;
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-1);
+            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1rem;
+            margin: 2rem 2rem 1rem;
             color: white;
-            font-size: 1.8rem;
+            font-size: 2rem;
         }
         
-        .project-title {
-            font-size: 1.4rem;
-            font-weight: 600;
+        .project-card:nth-child(2) .project-icon {
+            background: var(--gradient-2);
+        }
+        
+        .project-card:nth-child(3) .project-icon {
+            background: var(--gradient-3);
+        }
+        
+        .project-content {
+            padding: 0 2rem 2rem;
+        }
+        
+        .project-content h3 {
             color: var(--primary-color);
-            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
         }
         
         .project-meta {
-            color: var(--gray-color);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
             display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            align-items: center;
-        }
-
-        .project-meta i {
-            color: var(--secondary-color);
+            flex-direction: column;
+            gap: 0.3rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--gray-color);
         }
         
-        .project-card p {
+        .project-content p {
             color: #555;
             line-height: 1.7;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
-
-        .project-technologies {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .tech-tag {
-            background-color: #e8f4f8;
-            color: var(--secondary-color);
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
+        
         .project-stats {
             display: flex;
             gap: 1.5rem;
-            margin-top: 1rem;
             padding-top: 1rem;
             border-top: 1px solid #eee;
+            margin-top: 1rem;
         }
-
+        
         .project-stat {
             display: flex;
             align-items: center;
@@ -392,47 +525,72 @@
             color: var(--gray-color);
             font-size: 0.9rem;
         }
-
+        
         .project-stat i {
             color: var(--secondary-color);
         }
         
-        /* Education Section */
-        .education-section {
-            background-color: white;
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
         }
         
-        .edu-cert-grid {
+        .tech-tag {
+            background: #f0f4f8;
+            color: var(--secondary-color);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        /* Certifications Section */
+        .cert-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 1.5rem;
-            margin-top: 1.5rem;
+            margin-top: 2rem;
         }
         
-        .edu-cert-card {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--success-color);
-            transition: all 0.3s ease;
-        }
-
-        .edu-cert-card:hover {
+        .cert-card {
             background: white;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transform: translateX(5px);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-left: 5px solid var(--success-color);
         }
         
-        .cert-title {
-            font-weight: 600;
+        .cert-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .cert-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--success-color), #2ecc71);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cert-card h3 {
             color: var(--primary-color);
-            margin-bottom: 0.5rem;
             font-size: 1.1rem;
+            margin-bottom: 0.5rem;
         }
         
         .cert-org {
             color: var(--secondary-color);
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
         }
         
         .cert-date {
@@ -440,88 +598,164 @@
             font-size: 0.9rem;
         }
         
-        /* Languages Section */
-        .languages-section {
-            background-color: #f5f7fa;
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
         }
         
-        .languages {
+        .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+            gap: 2rem;
+            margin-top: 2rem;
         }
         
-        .language-item {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .contact-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
-        .language-name {
-            font-weight: 600;
-            color: var(--primary-color);
-            font-size: 1.1rem;
+        .contact-card:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
         }
         
-        .language-level {
-            color: var(--gray-color);
-            font-size: 0.95rem;
+        .contact-card i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .contact-card h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .contact-card a {
+            color: white;
+            text-decoration: none;
+            word-break: break-all;
+        }
+        
+        .contact-card a:hover {
+            text-decoration: underline;
         }
         
         /* Footer */
         footer {
-            background: linear-gradient(135deg, var(--primary-color), #1a2530);
+            background: var(--primary-color);
             color: white;
             padding: 2rem 0;
             text-align: center;
         }
         
-        footer a {
-            color: #bdc3c7;
-            text-decoration: none;
-            transition: color 0.3s ease;
+        footer p {
+            margin-bottom: 0.5rem;
         }
         
-        footer a:hover {
-            color: var(--secondary-color);
-        }
-        
-        .copyright {
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
             margin-top: 1rem;
-            color: #95a5a6;
-            font-size: 0.9rem;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary-color);
+            transform: scale(1.2);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
         }
         
         /* Responsive Design */
+        @media (max-width: 992px) {
+            .timeline::before {
+                left: 0;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 40px);
+                margin-left: 40px !important;
+            }
+            
+            .timeline-marker {
+                left: 0;
+                transform: translateX(0);
+            }
+        }
+        
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
+            .nav-links {
+                display: none;
             }
             
-            .title {
-                font-size: 1.2rem;
+            .mobile-menu {
+                display: block;
             }
             
-            .profile-header {
+            .hero-container {
                 flex-direction: column;
                 text-align: center;
             }
             
-            .profile-img,
-            .photo-placeholder {
-                margin: 0 auto 1rem;
+            .profile-photo {
+                width: 150px;
+                height: 150px;
             }
             
-            .experience-header {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .hero-stats {
                 flex-direction: column;
+                gap: 1.5rem;
             }
             
-            .project-grid {
+            .cta-buttons {
+                justify-content: center;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .projects-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -529,369 +763,188 @@
                 grid-template-columns: 1fr;
             }
         }
-
-        /* Scroll animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
         }
-
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease-out;
+        
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-top:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
+    <!-- Navigation -->
+    <nav id="navbar">
         <div class="container">
-            <div class="profile-header">
-                <div class="photo-placeholder">
-                    <i class="fas fa-user"></i>
+            <div class="nav-container">
+                <a href="#" class="logo">Mohamed<span>.dev</span></a>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
                 </div>
-                <div class="profile-info">
-                    <h1>Mohamed Yehia Mohamed Merghany</h1>
-                    <p class="title">Senior Software Developer & Data Engineer</p>
-                    <div class="contact-info">
-                        <p><i class="fas fa-map-marker-alt"></i> Cairo, Egypt</p>
-                        <p><i class="fas fa-envelope"></i> mohamed.y.m.merghany@gmail.com</p>
-                        <p><i class="fas fa-phone"></i> +20 100 0031319</p>
-                        <p><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/mohamed-el-merghany" style="color: #3498db;">linkedin.com/in/mohamed-el-merghany</a></p>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-container">
+                <div class="hero-image">
+                    <img src="https://raw.githubusercontent.com/merghany/portfolio/ffb66ff2e172f109f79d99e893220f4003b1b4e0/photo/merghany.jpg" alt="Mohamed El Merghany" class="profile-photo">
+                </div>
+                <div class="hero-content">
+                    <h1>Mohamed Yehia Mohamed El Merghany</h1>
+                    <p class="subtitle">Senior Software Developer & Data Engineer</p>
+                    <p>
+                        Architecting enterprise-scale systems for over 20 years. Specialized in designing secure, scalable database architectures and data-driven applications using Oracle, Python, and Java. Building mission-critical systems serving 3,000 to 10,000+ users with 99.9% uptime.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">20+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">10K+</span>
+                            <span class="stat-label">Users Served</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">99.9%</span>
+                            <span class="stat-label">System Uptime</span>
+                        </div>
+                    </div>
+                    <div class="cta-buttons">
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fas fa-envelope"></i> Get In Touch
+                        </a>
+                        <a href="#projects" class="btn btn-outline">
+                            <i class="fas fa-folder-open"></i> View Projects
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-    </header>
+    </section>
 
-    <!-- Profile Section -->
-    <section class="profile-section">
+    <!-- About Section -->
+    <section id="about">
         <div class="container">
-            <h2>Profile</h2>
-            <div class="profile-text">
+            <div class="section-title">
+                <h2>About Me</h2>
                 <p>
-                    Results-driven <span class="highlight">Senior Software Developer and Data Engineer</span> with over <span class="highlight">20 years of comprehensive experience</span> in designing, implementing, and optimizing complex enterprise-level applications and data solutions. Deep expertise in Oracle ecosystems, Microsoft Azure, and modern data engineering practices.
-                </p>
-                <p style="margin-top: 1rem;">
-                    Proven track record of leading development teams, architecting scalable systems, and delivering mission-critical solutions across various sectors including education, government, and commercial industries. Specialized in data pipeline development, ETL processes, business intelligence, and full-stack application development.
+                    Senior Software Developer & Data Engineer with expertise in architecting and leading full lifecycle implementation of high-impact, enterprise-scale systems. 
+                    Combines deep technical mastery in ETL, data modeling, and performance optimization with strategic business analysis (CBAP), security (CISSP), 
+                    and Oracle System Modeling certifications to deliver solutions that align technical excellence with operational needs and security best practices.
                 </p>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section class="skills-section">
+    <section id="skills" style="background: #f8f9fa;">
         <div class="container">
-            <h2>Technical Skills</h2>
+            <div class="section-title">
+                <h2>Technical Skills</h2>
+            </div>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h3><i class="fas fa-database"></i> Database Technologies</h3>
+                    <h3><i class="fas fa-code"></i> Programming & Scripting</h3>
                     <div class="skill-items">
-                        <span class="skill-item">Oracle 10g/11g/12c/19c</span>
-                        <span class="skill-item">PL/SQL</span>
-                        <span class="skill-item">SQL Server</span>
-                        <span class="skill-item">MySQL</span>
-                        <span class="skill-item">PostgreSQL</span>
-                        <span class="skill-item">Database Design</span>
-                        <span class="skill-item">Performance Tuning</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">PL/SQL</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">Visual Basic</span>
+                        <span class="skill-tag">XML</span>
+                        <span class="skill-tag">HTML</span>
                     </div>
                 </div>
                 
                 <div class="skill-category">
-                    <h3><i class="fas fa-cloud"></i> Cloud & Data Engineering</h3>
+                    <h3><i class="fas fa-database"></i> Databases & Systems</h3>
                     <div class="skill-items">
-                        <span class="skill-item">Microsoft Azure</span>
-                        <span class="skill-item">Azure Data Factory</span>
-                        <span class="skill-item">Azure Synapse</span>
-                        <span class="skill-item">Azure Databricks</span>
-                        <span class="skill-item">ETL Pipelines</span>
-                        <span class="skill-item">Data Warehousing</span>
-                        <span class="skill-item">Big Data</span>
+                        <span class="skill-tag">Oracle Database</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">Microsoft SQL Server</span>
+                        <span class="skill-tag">MySQL</span>
                     </div>
                 </div>
                 
                 <div class="skill-category">
-                    <h3><i class="fas fa-code"></i> Development Tools</h3>
+                    <h3><i class="fas fa-stream"></i> Data Engineering</h3>
                     <div class="skill-items">
-                        <span class="skill-item">Oracle Forms/Reports</span>
-                        <span class="skill-item">Oracle ADF</span>
-                        <span class="skill-item">Visual Basic</span>
-                        <span class="skill-item">C/C++</span>
-                        <span class="skill-item">Python</span>
-                        <span class="skill-item">.NET</span>
-                        <span class="skill-item">Git</span>
+                        <span class="skill-tag">ETL/ELT Design</span>
+                        <span class="skill-tag">Data Modeling</span>
+                        <span class="skill-tag">Data Warehousing</span>
+                        <span class="skill-tag">Apache Spark</span>
+                        <span class="skill-tag">Hadoop</span>
+                        <span class="skill-tag">Kafka</span>
                     </div>
                 </div>
                 
                 <div class="skill-category">
-                    <h3><i class="fas fa-chart-line"></i> BI & Analytics</h3>
+                    <h3><i class="fas fa-layer-group"></i> Frameworks & Platforms</h3>
                     <div class="skill-items">
-                        <span class="skill-item">Power BI</span>
-                        <span class="skill-item">SSRS</span>
-                        <span class="skill-item">Crystal Reports</span>
-                        <span class="skill-item">Data Visualization</span>
-                        <span class="skill-item">Business Intelligence</span>
+                        <span class="skill-tag">Django</span>
+                        <span class="skill-tag">Oracle APEX</span>
+                        <span class="skill-tag">Oracle ADF</span>
+                        <span class="skill-tag">Oracle Forms</span>
+                        <span class="skill-tag">Oracle Reports</span>
+                        <span class="skill-tag">BI Publisher</span>
                     </div>
                 </div>
                 
                 <div class="skill-category">
                     <h3><i class="fas fa-project-diagram"></i> Architecture & Design</h3>
                     <div class="skill-items">
-                        <span class="skill-item">System Architecture</span>
-                        <span class="skill-item">Solution Design</span>
-                        <span class="skill-item">Microservices</span>
-                        <span class="skill-item">API Development</span>
-                        <span class="skill-item">Design Patterns</span>
+                        <span class="skill-tag">System Architecture</span>
+                        <span class="skill-tag">Database Design</span>
+                        <span class="skill-tag">Performance Tuning</span>
+                        <span class="skill-tag">SDLC/DDLC</span>
+                        <span class="skill-tag">Solution Architecture</span>
+                        <span class="skill-tag">Systems Thinking</span>
                     </div>
                 </div>
                 
                 <div class="skill-category">
-                    <h3><i class="fas fa-tasks"></i> Methodologies</h3>
+                    <h3><i class="fas fa-tools"></i> Tools & Methodologies</h3>
                     <div class="skill-items">
-                        <span class="skill-item">Agile/Scrum</span>
-                        <span class="skill-item">DevOps</span>
-                        <span class="skill-item">CI/CD</span>
-                        <span class="skill-item">Project Management</span>
-                        <span class="skill-item">Six Sigma</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Showcase Section -->
-    <section class="projects-section">
-        <div class="container">
-            <h2>Projects Showcase</h2>
-            <div class="project-grid">
-                <!-- Project 1: Ministry of Education School Management System -->
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-school"></i>
-                    </div>
-                    <div class="project-title">Ministry of Education School Management System (MES)</div>
-                    <div class="project-meta">
-                        <span><i class="fas fa-building"></i> Altayar Alliance</span>
-                        <span><i class="fas fa-calendar"></i> 2013 - 2023</span>
-                    </div>
-                    <p>
-                        Led the complete architecture and development of a comprehensive school management system serving over 300 schools. Designed and implemented a scalable Oracle-based solution handling student records, academic tracking, attendance, HR, and financial operations.
-                    </p>
-                    <div class="project-technologies">
-                        <span class="tech-tag">Oracle 12c</span>
-                        <span class="tech-tag">PL/SQL</span>
-                        <span class="tech-tag">Oracle Forms</span>
-                        <span class="tech-tag">Crystal Reports</span>
-                        <span class="tech-tag">System Architecture</span>
-                    </div>
-                    <div class="project-stats">
-                        <div class="project-stat">
-                            <i class="fas fa-users"></i>
-                            <span>300+ Schools</span>
-                        </div>
-                        <div class="project-stat">
-                            <i class="fas fa-clock"></i>
-                            <span>10 Years</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2: General Education Schools Management System -->
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <div class="project-title">General Education Schools Management System (GES)</div>
-                    <div class="project-meta">
-                        <span><i class="fas fa-building"></i> Altayar Alliance</span>
-                        <span><i class="fas fa-calendar"></i> 2019 - 2023</span>
-                    </div>
-                    <p>
-                        Served as Lead Architect for parallel implementation of school management system. Customized core framework to meet specific operational requirements, developed automated data validation and cleansing processes for improved data integrity.
-                    </p>
-                    <div class="project-technologies">
-                        <span class="tech-tag">Oracle</span>
-                        <span class="tech-tag">Data Migration</span>
-                        <span class="tech-tag">ETL</span>
-                        <span class="tech-tag">Custom Development</span>
-                    </div>
-                    <div class="project-stats">
-                        <div class="project-stat">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Lead Architect</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3: University Management System -->
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-university"></i>
-                    </div>
-                    <div class="project-title">University Management System (UMS)</div>
-                    <div class="project-meta">
-                        <span><i class="fas fa-building"></i> October 6 University</span>
-                        <span><i class="fas fa-calendar"></i> 2004 - 2010</span>
-                    </div>
-                    <p>
-                        Led full lifecycle development of comprehensive university management system. Architected and optimized core Oracle database schemas and PL/SQL packages. Improved system scalability to support growing user base of over 10,000 students and staff.
-                    </p>
-                    <div class="project-technologies">
-                        <span class="tech-tag">Oracle 10g</span>
-                        <span class="tech-tag">PL/SQL</span>
-                        <span class="tech-tag">Oracle Forms</span>
-                        <span class="tech-tag">Performance Optimization</span>
-                    </div>
-                    <div class="project-stats">
-                        <div class="project-stat">
-                            <i class="fas fa-users"></i>
-                            <span>10,000+ Users</span>
-                        </div>
-                        <div class="project-stat">
-                            <i class="fas fa-database"></i>
-                            <span>Full Stack</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4: Azure Data Engineering Solutions -->
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-cloud-upload-alt"></i>
-                    </div>
-                    <div class="project-title">Azure Data Engineering & Analytics Platform</div>
-                    <div class="project-meta">
-                        <span><i class="fas fa-building"></i> Altayar Alliance</span>
-                        <span><i class="fas fa-calendar"></i> 2020 - Present</span>
-                    </div>
-                    <p>
-                        Designed and implemented modern cloud-based data engineering solutions using Microsoft Azure. Built ETL pipelines, data warehouses, and analytics platforms. Integrated Power BI for business intelligence and reporting capabilities.
-                    </p>
-                    <div class="project-technologies">
-                        <span class="tech-tag">Azure Data Factory</span>
-                        <span class="tech-tag">Azure Synapse</span>
-                        <span class="tech-tag">Databricks</span>
-                        <span class="tech-tag">Power BI</span>
-                        <span class="tech-tag">Python</span>
-                    </div>
-                    <div class="project-stats">
-                        <div class="project-stat">
-                            <i class="fas fa-cloud"></i>
-                            <span>Cloud Native</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 5: Jazan Court Solutions -->
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-gavel"></i>
-                    </div>
-                    <div class="project-title">Jazan Court Solutions</div>
-                    <div class="project-meta">
-                        <span><i class="fas fa-building"></i> Omega Software Solutions</span>
-                        <span><i class="fas fa-calendar"></i> Jan 2009 - Dec 2009</span>
-                    </div>
-                    <p>
-                        Developed specialized technical solutions for Jazan Court in the Kingdom of Saudi Arabia. Created custom Oracle-based applications to streamline court operations and case management processes.
-                    </p>
-                    <div class="project-technologies">
-                        <span class="tech-tag">Oracle 10g</span>
-                        <span class="tech-tag">Oracle Forms</span>
-                        <span class="tech-tag">PL/SQL</span>
-                        <span class="tech-tag">Government Sector</span>
-                    </div>
-                    <div class="project-stats">
-                        <div class="project-stat">
-                            <i class="fas fa-globe"></i>
-                            <span>Saudi Arabia</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 6: HR Management System Architecture -->
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-users-cog"></i>
-                    </div>
-                    <div class="project-title">HR Management System Architecture</div>
-                    <div class="project-meta">
-                        <span><i class="fas fa-building"></i> MGT Intel Group - USA</span>
-                        <span><i class="fas fa-calendar"></i> May 2008 - Jan 2009</span>
-                    </div>
-                    <p>
-                        Designed scalable system architectures for comprehensive Human Resource Management. Created enterprise-level solutions for employee management, payroll, benefits administration, and performance tracking.
-                    </p>
-                    <div class="project-technologies">
-                        <span class="tech-tag">System Design</span>
-                        <span class="tech-tag">Architecture</span>
-                        <span class="tech-tag">HR Solutions</span>
-                        <span class="tech-tag">Enterprise Systems</span>
-                    </div>
-                    <div class="project-stats">
-                        <div class="project-stat">
-                            <i class="fas fa-sitemap"></i>
-                            <span>Enterprise Scale</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 7: ERP System Development -->
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <div class="project-title">Enterprise Resource Planning System</div>
-                    <div class="project-meta">
-                        <span><i class="fas fa-building"></i> Swanco Oil Service & Catering</span>
-                        <span><i class="fas fa-calendar"></i> 2002 - 2004</span>
-                    </div>
-                    <p>
-                        Developed comprehensive ERP system to support business operations. Established IT infrastructure including network systems and operating environments. Integrated multiple business functions into unified platform.
-                    </p>
-                    <div class="project-technologies">
-                        <span class="tech-tag">ERP Development</span>
-                        <span class="tech-tag">Infrastructure</span>
-                        <span class="tech-tag">Business Integration</span>
-                        <span class="tech-tag">Full Stack</span>
-                    </div>
-                    <div class="project-stats">
-                        <div class="project-stat">
-                            <i class="fas fa-building"></i>
-                            <span>Oil & Gas Sector</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 8: Data Migration & Integration -->
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-exchange-alt"></i>
-                    </div>
-                    <div class="project-title">Large-Scale Data Migration & Integration</div>
-                    <div class="project-meta">
-                        <span><i class="fas fa-building"></i> Various Clients</span>
-                        <span><i class="fas fa-calendar"></i> 2010 - Present</span>
-                    </div>
-                    <p>
-                        Executed multiple complex data migration projects across different platforms. Developed ETL processes for data cleansing, transformation, and integration. Ensured data integrity and minimal downtime during migrations.
-                    </p>
-                    <div class="project-technologies">
-                        <span class="tech-tag">ETL</span>
-                        <span class="tech-tag">Data Migration</span>
-                        <span class="tech-tag">Integration</span>
-                        <span class="tech-tag">Quality Assurance</span>
-                    </div>
-                    <div class="project-stats">
-                        <div class="project-stat">
-                            <i class="fas fa-database"></i>
-                            <span>Multi-Platform</span>
-                        </div>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">REST API</span>
+                        <span class="skill-tag">Agile/Scrum</span>
+                        <span class="skill-tag">Technical Leadership</span>
+                        <span class="skill-tag">Strategic Planning</span>
                     </div>
                 </div>
             </div>
@@ -899,186 +952,299 @@
     </section>
 
     <!-- Experience Section -->
-    <section class="experience-section">
+    <section id="experience">
         <div class="container">
-            <h2>Professional Experience</h2>
-            
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <div class="job-title">Senior Oracle Developer & Data Engineer</div>
-                        <div class="company">Altayar Alliance</div>
-                    </div>
-                    <div class="date">January 2013 - Present | Full Time</div>
-                </div>
-                <div class="responsibilities">
-                    <ul>
-                        <li>Led development and ongoing support of comprehensive School Management System (MES) serving 300+ educational institutions</li>
-                        <li>Architected end-to-end data solutions using Microsoft Azure technologies (Data Factory, Synapse, Databricks)</li>
-                        <li>Designed and implemented complex ETL pipelines for data integration and transformation</li>
-                        <li>Created dynamic Power BI dashboards and reports for business intelligence</li>
-                        <li>Optimized database performance and developed scalable PL/SQL solutions</li>
-                        <li>Mentored development team members and conducted technical code reviews</li>
-                        <li>Managed client relationships and delivered technical presentations</li>
-                    </ul>
-                </div>
+            <div class="section-title">
+                <h2>Professional Experience</h2>
             </div>
-            
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <div class="job-title">Oracle Developer & DBA - Consultant</div>
-                        <div class="company">General Education Schools</div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Senior Software Developer</h3>
+                        <p class="company">Modern English School (MES)</p>
+                        <p class="date"><i class="far fa-calendar"></i> December 2010 - Present | Full Time</p>
+                        <ul>
+                            <li>Architected and led development of School Management System serving 3,000 students and staff with 99.9% uptime</li>
+                            <li>Collaborated with stakeholders to define system parameters and ensure alignment with operational needs</li>
+                            <li>Managed database design, configuration, testing, and deployment ensuring scalability and performance</li>
+                            <li>Designed and maintained ETL pipelines for student performance analytics and reporting</li>
+                            <li>Built data models to support business intelligence and operational reporting</li>
+                            <li>Optimized data workflows for real-time dashboards and administrative insights</li>
+                        </ul>
                     </div>
-                    <div class="date">September 2019 - September 2023 | Part Time</div>
                 </div>
-                <div class="responsibilities">
-                    <ul>
-                        <li>Consulted as Lead Architect for parallel School Management System implementation</li>
-                        <li>Customized core framework for specific operational requirements</li>
-                        <li>Developed automated data validation and cleansing processes</li>
-                        <li>Provided database administration and performance optimization</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <div class="job-title">Senior Software Developer</div>
-                        <div class="company">Creative Advanced Technologies (CAT)</div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Senior Software Developer</h3>
+                        <p class="company">Gulf English School (GES)</p>
+                        <p class="date"><i class="far fa-calendar"></i> September 2020 - Present | Hybrid</p>
+                        <ul>
+                            <li>Lead Architect for parallel School Management System implementation</li>
+                            <li>Leveraged core framework from MES while customizing for GES's specific operational needs</li>
+                            <li>Developed automated data validation and cleansing processes</li>
+                        </ul>
                     </div>
-                    <div class="date">February 2011 - December 2012 | Full Time</div>
                 </div>
-                <div class="responsibilities">
-                    <ul>
-                        <li>Developed and maintained Oracle-based enterprise applications</li>
-                        <li>Implemented business logic using PL/SQL and Oracle Forms</li>
-                        <li>Collaborated with cross-functional teams on system enhancements</li>
-                        <li>Conducted system testing and quality assurance</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <div class="job-title">Senior Oracle Developer</div>
-                        <div class="company">October 6 University</div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Senior Oracle Developer</h3>
+                        <p class="company">October 6 University</p>
+                        <p class="date"><i class="far fa-calendar"></i> July 2004 - December 2010 | Full Time</p>
+                        <ul>
+                            <li>Led full lifecycle development of University Management System (UMS)</li>
+                            <li>Architected and optimized core Oracle database schemas and PL/SQL packages</li>
+                            <li>Improved system scalability to support 10,000+ students and staff</li>
+                        </ul>
                     </div>
-                    <div class="date">July 2004 - December 2010 | Full Time</div>
                 </div>
-                <div class="responsibilities">
-                    <ul>
-                        <li>Led full lifecycle development of University Management System (UMS)</li>
-                        <li>Architected and optimized core Oracle database schemas and PL/SQL packages</li>
-                        <li>Improved system scalability to support 10,000+ students and staff</li>
-                        <li>Managed database performance tuning and optimization</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <div class="job-title">Software Developer</div>
-                        <div class="company">Swanco Oil Service & Catering</div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Software Developer</h3>
+                        <p class="company">Swanco Oil Service & Catering</p>
+                        <p class="date"><i class="far fa-calendar"></i> December 2002 - August 2004 | Full Time</p>
+                        <ul>
+                            <li>Established IT infrastructure including network systems and operating environments</li>
+                            <li>Developed ERP system to support business operations</li>
+                        </ul>
                     </div>
-                    <div class="date">December 2002 - August 2004 | Full Time</div>
                 </div>
-                <div class="responsibilities">
-                    <ul>
-                        <li>Established IT infrastructure including network systems and operating environments</li>
-                        <li>Developed ERP system to support business operations</li>
-                        <li>Provided technical support and system maintenance</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <div class="job-title">VB Developer</div>
-                        <div class="company">Smart Software Solutions</div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>VB Developer</h3>
+                        <p class="company">Smart Software Solutions</p>
+                        <p class="date"><i class="far fa-calendar"></i> May 2001 - December 2002 | Full Time</p>
+                        <ul>
+                            <li>Contributed to development of ERP System</li>
+                        </ul>
                     </div>
-                    <div class="date">May 2001 - December 2002 | Full Time</div>
-                </div>
-                <div class="responsibilities">
-                    <ul>
-                        <li>Contributed to development of ERP System modules</li>
-                        <li>Developed desktop applications using Visual Basic</li>
-                        <li>Participated in system design and implementation</li>
-                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Education & Certifications Section -->
-    <section class="education-section">
+    <!-- Projects Section -->
+    <section id="projects" style="background: #f8f9fa;">
         <div class="container">
-            <h2>Education & Certifications</h2>
-            
-            <div class="edu-cert-grid">
-                <div class="edu-cert-card">
-                    <div class="cert-title">B.Sc. Management Information Systems</div>
-                    <div class="cert-org">Sadat Academy for Management Science</div>
-                    <div class="cert-date">July 2002</div>
-                </div>
-                
-                <div class="edu-cert-card">
-                    <div class="cert-title">Information Systems Security Professional (CISSP)</div>
-                    <div class="cert-org">The State University of New York</div>
-                    <div class="cert-date">December 2015</div>
-                </div>
-                
-                <div class="edu-cert-card">
-                    <div class="cert-title">Business Analysis Professional (CBAP)</div>
-                    <div class="cert-org">The State University of New York</div>
-                    <div class="cert-date">September 2015</div>
-                </div>
-                
-                <div class="edu-cert-card">
-                    <div class="cert-title">Oracle System Modeling & Tools</div>
-                    <div class="cert-org">The American University in Cairo</div>
-                    <div class="cert-date">September 2001</div>
-                </div>
-                
-                <div class="edu-cert-card">
-                    <div class="cert-title">Project Management</div>
-                    <div class="cert-org">IBM</div>
-                    <div class="cert-date">January 2005</div>
-                </div>
+            <div class="section-title">
+                <h2>Featured Projects</h2>
             </div>
-            
-            <h3 style="margin-top: 2rem; color: var(--primary-color);">Relevant Courses</h3>
-            <div class="skill-items" style="margin-top: 1rem;">
-                <span class="skill-item">Microsoft Data Engineer (2026)</span>
-                <span class="skill-item">Oracle DBA (2018)</span>
-                <span class="skill-item">Oracle ADF (2016)</span>
-                <span class="skill-item">Six Sigma (2015)</span>
-                <span class="skill-item">Oracle 11g Forms & Report (2013)</span>
-                <span class="skill-item">Linux Fundamental (2012)</span>
-                <span class="skill-item">Effective Business Communication (2011)</span>
-                <span class="skill-item">C/C++ Language (2000)</span>
-                <span class="skill-item">Visual Basic (1999)</span>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>School Management System</h3>
+                        <div class="project-meta">
+                            <span><strong>Organization:</strong> Modern English School</span>
+                            <span><strong>Duration:</strong> December 2010 - Present</span>
+                        </div>
+                        <p>
+                            Comprehensive enterprise-scale system serving 3,000 students and staff with 99.9% uptime. 
+                            Features include student records management, academic tracking, attendance, HR operations, and financial management.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Oracle Database</span>
+                            <span class="tech-tag">PL/SQL</span>
+                            <span class="tech-tag">Oracle Forms</span>
+                            <span class="tech-tag">ETL Pipelines</span>
+                            <span class="tech-tag">BI Reporting</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <i class="fas fa-users"></i>
+                                <span>3,000+ Users</span>
+                            </div>
+                            <div class="project-stat">
+                                <i class="fas fa-check-circle"></i>
+                                <span>99.9% Uptime</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>University Management System</h3>
+                        <div class="project-meta">
+                            <span><strong>Organization:</strong> October 6 University</span>
+                            <span><strong>Duration:</strong> July 2004 - December 2010</span>
+                        </div>
+                        <p>
+                            Led full lifecycle development from analysis and architecture through implementation. 
+                            Optimized database schemas and PL/SQL packages to support growing user base of 10,000+ students and staff.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Oracle 10g/11g</span>
+                            <span class="tech-tag">PL/SQL</span>
+                            <span class="tech-tag">System Architecture</span>
+                            <span class="tech-tag">Performance Tuning</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <i class="fas fa-users"></i>
+                                <span>10,000+ Users</span>
+                            </div>
+                            <div class="project-stat">
+                                <i class="fas fa-database"></i>
+                                <span>Full Stack</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Jazan Court Solutions</h3>
+                        <div class="project-meta">
+                            <span><strong>Organization:</strong> Omega Software Solutions</span>
+                            <span><strong>Duration:</strong> January 2009 - December 2009</span>
+                        </div>
+                        <p>
+                            Developed specialized technical solutions for Jazan Court in the Kingdom of Saudi Arabia. 
+                            Created Oracle-based applications to streamline court operations and case management.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Oracle 10g</span>
+                            <span class="tech-tag">Government Solutions</span>
+                            <span class="tech-tag">Case Management</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <i class="fas fa-globe"></i>
+                                <span>Saudi Arabia</span>
+                            </div>
+                            <div class="project-stat">
+                                <i class="fas fa-building"></i>
+                                <span>Government</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Languages Section -->
-    <section class="languages-section">
+    <!-- Certifications Section -->
+    <section id="certifications">
         <div class="container">
-            <h2>Languages</h2>
-            <div class="languages">
-                <div class="language-item">
-                    <div class="language-name">English</div>
-                    <div class="language-level">Professional working proficiency</div>
+            <div class="section-title">
+                <h2>Certifications & Education</h2>
+            </div>
+            
+            <h3 style="color: var(--primary-color); margin-bottom: 1.5rem; font-size: 1.5rem;">Professional Certifications</h3>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Information Systems Security Professional (CISSP)</h3>
+                    <p class="cert-org">The State University of New York</p>
+                    <p class="cert-date">December 2015</p>
                 </div>
                 
-                <div class="language-item">
-                    <div class="language-name">Arabic</div>
-                    <div class="language-level">Native</div>
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Business Analysis Professional (CBAP)</h3>
+                    <p class="cert-org">The State University of New York</p>
+                    <p class="cert-date">September 2015</p>
+                </div>
+                
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Oracle System Modeling & Tools</h3>
+                    <p class="cert-org">The American University in Cairo</p>
+                    <p class="cert-date">September 2001</p>
+                </div>
+                
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>Project Management</h3>
+                    <p class="cert-org">IBM</p>
+                    <p class="cert-date">January 2005</p>
+                </div>
+            </div>
+            
+            <h3 style="color: var(--primary-color); margin: 3rem 0 1.5rem; font-size: 1.5rem;">Education</h3>
+            <div class="cert-grid">
+                <div class="cert-card" style="border-left-color: var(--secondary-color);">
+                    <div class="cert-icon" style="background: linear-gradient(135deg, var(--secondary-color), #5dade2);">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>B.Sc. Management Information Systems</h3>
+                    <p class="cert-org">Sadat Academy for Management Science</p>
+                    <p class="cert-date">July 2002</p>
+                </div>
+            </div>
+            
+            <h3 style="color: var(--primary-color); margin: 3rem 0 1.5rem; font-size: 1.5rem;">Professional Development</h3>
+            <div class="skill-items">
+                <span class="skill-tag">Microsoft Data Engineer (2026)</span>
+                <span class="skill-tag">Oracle DBA (2018)</span>
+                <span class="skill-tag">Oracle ADF (2016)</span>
+                <span class="skill-tag">Six Sigma (2015)</span>
+                <span class="skill-tag">Oracle 11g Forms & Report (2013)</span>
+                <span class="skill-tag">Linux Fundamental (2012)</span>
+                <span class="skill-tag">Effective Business Communication (2011)</span>
+                <span class="skill-tag">C/C++ Language (2000)</span>
+                <span class="skill-tag">Visual Basic (1999)</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: white;">Get In Touch</h2>
+                <p style="color: rgba(255,255,255,0.9);">
+                    I'm always interested in hearing about new opportunities and collaborations
+                </p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <a href="/cdn-cgi/l/email-protection#b0dddfd8d1ddd5d49ec99ed5dcddd5c2d7d8d1dec9f0d7ddd1d9dc9ed3dfdd"><span class="__cf_email__" data-cfemail="9df0f2f5fcf0f8f9b3e4b3f8f1f0f8effaf5fcf3e4ddfaf0fcf4f1b3fef2f0">[email&#160;protected]</span></a>
+                </div>
+                
+                <div class="contact-card">
+                    <i class="fab fa-linkedin"></i>
+                    <h3>LinkedIn</h3>
+                    <a href="https://linkedin.com/in/Mohamed-El-Merghany" target="_blank">linkedin.com/in/Mohamed-El-Merghany</a>
+                </div>
+                
+                <div class="contact-card">
+                    <i class="fas fa-phone"></i>
+                    <h3>Phone</h3>
+                    <a href="tel:+201006919109">+20 100 691 9109</a>
+                </div>
+                
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Location</h3>
+                    <p>New Maadi, Cairo, Egypt</p>
                 </div>
             </div>
         </div>
@@ -1087,56 +1253,90 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="photo-placeholder" style="width: 100px; height: 100px; margin: 0 auto 1rem; border: 3px solid white;">
-                <i class="fas fa-user" style="font-size: 2.5rem;"></i>
-            </div>
-            <p>Mohamed Yehia Mohamed Merghany | Senior Software Developer & Data Engineer</p>
-            <div class="contact-info" style="margin-top: 1rem;">
-                <p style="display: inline-block; margin-right: 1.5rem;"><i class="fas fa-envelope"></i> <a href="mailto:mohamed.y.m.merghany@gmail.com">mohamed.y.m.merghany@gmail.com</a></p>
-                <p style="display: inline-block;"><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/mohamed-el-merghany">LinkedIn Profile</a></p>
-            </div>
-            <div class="copyright">
-                &copy; 2024 Mohamed Merghany. All rights reserved.
+            <p>&copy; 2024 Mohamed Yehia Mohamed El Merghany. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; color: var(--light-gray);">
+                Senior Software Developer & Data Engineer | 20+ Years Experience
+            </p>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/Mohamed-El-Merghany" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/mohamed-elmerghany" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="/cdn-cgi/l/email-protection#a8c5c7c0c9c5cdcc86d186cdc4c5cddacfc0c9c6d1e8cfc5c9c1c486cbc7c5" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Smooth scrolling
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Smooth scroll for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const targetPosition = target.offsetTop - offset;
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: targetPosition,
                         behavior: 'smooth'
                     });
                 }
             });
         });
-        
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll to top button
+        const scrollTopBtn = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
         // Intersection Observer for fade-in animations
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            rootMargin: '0px 0px -100px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in-up');
-                    observer.unobserve(entry.target);
+                    entry.target.classList.add('fade-in');
                 }
             });
         }, observerOptions);
 
-        // Observe all project cards
-        document.querySelectorAll('.project-card, .experience-item, .skill-category').forEach(el => {
+        // Observe elements
+        document.querySelectorAll('.skill-category, .timeline-item, .project-card, .cert-card').forEach(el => {
             observer.observe(el);
         });
-    </script>
-</body>
-</html>
+
+        // Mobile menu toggle (you c
